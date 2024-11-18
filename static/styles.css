@@ -11,6 +11,8 @@ body{
 .btn{
     width: 30px;
     height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .lamp{
@@ -24,4 +26,21 @@ body{
 
 .lamp.on{
     background: #e01e37;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.enable{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.enable.on{
+    background: green;
 }

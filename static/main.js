@@ -1,3 +1,16 @@
+// Enable button
+const enableBtn = document.querySelector(".enable");
+let enabled = false;
+// Toggle enabled
+enableBtn.addEventListener("click", () => {
+  enabled = !enabled;
+  if (enabled) {
+    enableBtn.classList.add("on");
+  } else {
+    enableBtn.classList.remove("on");
+  }
+});
+
 // Create inputs
 createInputs(8);
 // Create outputs
@@ -5,9 +18,10 @@ createOutputs(8);
 // Read outputs at a set interval 50ms
 setInterval(() => {
   readOutputs();
-}, 50);
+}, 500);
 
 async function changeInput(input) {
+  if (!enabled) return;
   const response = await fetch("/input", {
     method: "POST",
     headers: {
@@ -20,6 +34,7 @@ async function changeInput(input) {
 }
 
 async function readOutputs() {
+  if (!enabled) return;
   const response = await fetch("/outputs");
   const outputArray = await response.json(); // [false, false, false, ...]
   outputArray.forEach((value, i) => {

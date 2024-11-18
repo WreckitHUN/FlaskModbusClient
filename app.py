@@ -5,7 +5,6 @@ app = Flask(__name__)
 # Server's IP port is default 502
 local = '127.0.0.1'
 PLC = '192.168.0.1'
-ESP32 = "0.0.0.0"
 
 client = ModbusTcpClient(host=local)
 client.connect()
